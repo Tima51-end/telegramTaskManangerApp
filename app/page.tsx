@@ -11,6 +11,7 @@ import {
   Plus,
   Trash2,
   ShieldCheck,
+  Users,
 } from "lucide-react";
 import type { WebAppUser } from "telegram-web-app";
 import { getSupabase } from "@/lib/supabase";
@@ -251,6 +252,26 @@ export default function Home() {
             )}
           </div>
         </div>
+
+        <section className="p-8 rounded-3xl bg-slate-900/50 border border-slate-800 border-dashed flex flex-col items-center text-center gap-6 shadow-2xl">
+          <div className="p-4 bg-blue-600/10 rounded-2xl border border-blue-500/20">
+            <Users className="w-8 h-8 text-blue-500" />
+          </div>
+          <div className="space-y-2">
+            <p className="text-lg font-bold text-white uppercase tracking-[0.1em]">
+              Network Access
+            </p>
+            <p className="text-sm text-slate-500 max-w-[320px] leading-relaxed italic">
+              {t("community")}
+            </p>
+          </div>
+          <a
+            href="https://t.me/taskManagerTG"
+            className="w-full py-4 bg-slate-800 hover:bg-blue-600 text-white font-black uppercase text-xs tracking-[0.2em] rounded-2xl transition-all cursor-pointer shadow-lg text-center active:scale-95"
+          >
+            Join t.me/taskManagerTG
+          </a>
+        </section>
 
         <footer className="p-12 mt-20 border-t border-slate-900 flex flex-col items-center gap-4 opacity-40">
           <p className="text-lg font-black tracking-[0.3em] uppercase italic">
