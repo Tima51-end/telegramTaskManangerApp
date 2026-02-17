@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Telegram App Task Manager
+A high-performance Task Management Web Application built specifically for the Telegram Web Apps (TWA) ecosystem. This application leverages a modern tech stack to provide a seamless, persistent, and localized task tracking experience directly within Telegram.
 
-## Getting Started
+Core Technology Stack
+React and Next.js: Utilizing the App Router and Client-side rendering for a fluid user interface.
 
-First, run the development server:
+TypeScript: Ensuring strict type safety across the application, specifically for Telegram Web App integration and Supabase interactions.
 
-```bash
+Supabase: Serving as the backend infrastructure for real-time data persistence and user-based storage isolation.
+
+Tailwind CSS: For a customized cyberpunk-inspired design system optimized for mobile viewports.
+
+i18next: Implementing multi-language support including English, Russian, German, and Ukrainian.
+
+Lucide React: A consistent iconography set for high-fidelity visual feedback.
+
+Key Features
+Telegram Integration: Deep integration with the Telegram Web App API, including Haptic Feedback for physical interaction and native confirmation dialogs.
+
+User Identity: Automatic detection and display of Telegram user profiles, including avatars and usernames.
+
+Persistence: Tasks are securely stored and synced via Supabase, linked to the unique Telegram User ID.
+
+Localization: Dynamic language switching to accommodate a diverse user base within the NRW region and beyond.
+
+Adaptive UI: A responsive, dark-themed interface designed for the Pixel 10 and similar high-density mobile displays.
+
+Project Structure and Logic
+The application follows a modular service-oriented architecture.
+
+Task Service: Located in services/taskService.ts, it handles all CRUD operations (Create, Read, Update, Delete) through Supabase.
+
+Supabase Client: A specialized utility that initializes the connection based on the user's Telegram ID to ensure data privacy.
+
+Internationalization: Configured via i18n.js to handle translations for greetings, placeholders, and system alerts.
+
+Installation and Setup
+Clone the repository to your local environment.
+
+Install dependencies using the following command:
+npm install
+
+Configure environment variables. Create a .env.local file and add your Supabase URL and Anon Key:
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+Run the development server:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+For Telegram integration testing, use a tunneling service like ngrok to expose your local server via HTTPS, as required by the Telegram Bot API.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+UI Components
+Navigation: A sticky header with glassmorphism effects and a language toggle.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+User Profile Section: Displays real-time Telegram user data or development fallbacks.
 
-## Learn More
+Central Node: The primary interface for task interaction, featuring a custom haptic-enabled add button.
 
-To learn more about Next.js, take a look at the following resources:
+Task Items: Dynamic components that support toggling completion states and warning-level haptic feedback on deletion.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Network Access: A dedicated community section for Telegram channel integration.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Future Roadmap
+Integration of advanced state management for offline-first capabilities.
 
-## Deploy on Vercel
+Implementation of priority levels for tasks using distinct color-coded indicators.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Expanded system status metrics in the Info Section for better user transparency.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Performance optimization for the Vercel deployment pipeline.
